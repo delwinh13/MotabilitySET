@@ -4,6 +4,12 @@
 
 ### Overview
 
+I have added in a Motability Operation - MOT_OLA_TS-001 - New Application Test Strategy.docx after analysing the Tech Task requirements to outline the strategy for the testing required during the OLA New Application process.
+An Excel Test Cases document (Motability Operation - MOT_OLA_TS-001 - New Application Test Cases.xlsx) has been included after defining acceptance criteria based off of the detials in the Tech Task document.
+An example of the POST API call to the endpoint ```/api/v2/applications was done in Postman and file name = OLA_newApplication.postman_collection.json
+
+### Example of Cypress Automation Regression Test Suite for OLA_newApplication
+
 Testing suite that performs automation tests across the OLA Application and ensures basic functionality is still working. Technologies included are:
 
 - Cypress
