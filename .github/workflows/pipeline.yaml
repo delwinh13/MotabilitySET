@@ -11,15 +11,12 @@ on:
     - cron: "30 8 * * *"
 
 jobs:
-  bet365:
+  motability:
     runs-on: ubuntu-latest
     timeout-minutes: 10
     strategy:
       matrix:
         node-version: [20.10]
-
-    env:
-      BRAND_ID: motability
 
     steps:
       - uses: actions/checkout@v3

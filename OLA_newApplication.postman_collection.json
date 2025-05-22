@@ -1,0 +1,112 @@
+{
+	"info": {
+		"_postman_id": "98eeaa52-69b4-4972-9be5-38778556d833",
+		"name": "OLA_newApplication",
+		"description": "Motability Operation OLA Application API Collection",
+		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json",
+		"_exporter_id": "44786397"
+	},
+	"item": [
+		{
+			"name": "createAccount",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});"
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "basic",
+					"basic": {
+						"password": "{{vault:Auth_password}}",
+						"username": "{{vault:Auth_username}}"
+					}
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"dealerCode\": \"DC_001\",\r\n    \"customer\": {\r\n        \"firstName\": \"John\",\r\n        \"lastName\": \"Doe\",\r\n        \"title\": \"Mr\",\r\n        \"dob\": 20021985,\r\n        \"nino\": \"ST123456A\",\r\n        \"residentialCareHome\": true,\r\n        \"twentyFourHourCare\": true,\r\n        \"mobilePhoneNumber\": true,\r\n        \"homePhoneNumber\": \"07885717689\",\r\n        \"email\": \"test@email.co.uk\",\r\n        \"addressLine1\": \"Flat 2\",\r\n        \"addressLine2\": \"Main Road\",\r\n        \"addressLine3\": \"\",\r\n        \"addressLine4\": \"\",\r\n        \"postcode\": \"EH12PA\"\r\n    }\r\n}\r\n",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": "{{baseUrl}}/api/v1/applications",
+				"description": "Initial application using a POST API call to the endpoint /api/v2/applications"
+			},
+			"response": [
+				{
+					"name": "createAccount",
+					"originalRequest": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"dealerCode\": \"DC_001\",\r\n    \"customer\": {\r\n        \"firstName\": \"John\",\r\n        \"lastName\": \"Doe\",\r\n        \"title\": \"Mr\",\r\n        \"dob\": 20021985,\r\n        \"nino\": \"ST123456A\",\r\n        \"residentialCareHome\": true,\r\n        \"twentyFourHourCare\": true,\r\n        \"mobilePhoneNumber\": true,\r\n        \"homePhoneNumber\": \"07885717689\",\r\n        \"email\": \"test@email.co.uk\",\r\n        \"addressLine1\": \"Flat 2\",\r\n        \"addressLine2\": \"Main Road\",\r\n        \"addressLine3\": \"\",\r\n        \"addressLine4\": \"\",\r\n        \"postcode\": \"EH12PA\"\r\n    }\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "https://test.mo_ola.co.uk/api/v1/applications"
+					},
+					"_postman_previewlanguage": "Text",
+					"header": [],
+					"cookie": [
+						{
+							"expires": "Invalid Date"
+						}
+					],
+					"body": "{\r\n    customer: {\r\n        firstName: 'John',\r\n        lastName: 'Doe',\r\n        status: 'Active',\r\n    }\r\n}"
+				}
+			]
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"packages": {},
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"packages": {},
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "baseUrl",
+			"value": "https://test.mo_ola.co.uk",
+			"type": "string"
+		}
+	]
+}
