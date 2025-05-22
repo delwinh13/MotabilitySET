@@ -1,0 +1,47 @@
+name: Run Cypress Tests
+
+on:
+  workflow_dispatch:
+  push:
+  pull_request:
+    branches:
+      - "**"
+  schedule:
+    # run every morning at 8:30am
+    - cron: "30 8 * * *"
+
+jobs:
+  bet365:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    strategy:
+      matrix:
+        node-version: [20.10]
+
+    env:
+      BRAND_ID: motability
+
+    steps:
+      - uses: actions/checkout@v3
+      - name: Use Node.js ${{ matrix.node-version }}
+        uses: actions/setup-node@v3
+        with:
+          node-version: ${{ matrix.node-version }}
+      - name: Cypress run
+        uses: cypress-io/github-action@v6
+        env:
+          # The below are the environment variables required for the cypress run using the cypress-io/github-action
+          CYPRESS_RECORD_KEY: 000f1af9-c41b-49e3-bb19-aebe0f1f52cc
+          CYPRESS_PROJECT_ID: 3y55ca
+          CYPRESS_admin_username: ${{ secrets.CYPRESS_ADMIN_USERNAME }}
+          CYPRESS_admin_password: ${{ secrets.CYPRESS_ADMIN_PASSWORD }}
+        with:
+          record: true
+          browser: electron
+      - name: Generate report
+        run: npm run cypress:report
+      - name: Upload report
+        uses: actions/upload-artifact@v4
+        with:
+          name: cypress-cucumber-report
+          path: cypress/cucumber-json/cucumber-report.json

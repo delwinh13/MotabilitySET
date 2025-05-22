@@ -1,0 +1,20 @@
+{
+  "dealerCode": "DC_001",
+  "customer": {
+      "firstName": "John",
+      "lastName": "Doe",
+      "title": "Mr",
+      "dob": 20021985,
+      "nino": "ST123456A",
+      "residentialCareHome": true,
+      "twentyFourHourCare": true,
+      "mobilePhoneNumber": true,
+      "homePhoneNumber": "07885717689",
+      "email": "test@email.co.uk",
+      "addressLine1": "Flat 2",
+      "addressLine2": "Main Road",
+      "addressLine3": "",
+      "addressLine4": "",
+      "postcode": "EH12PA"
+  }
+}

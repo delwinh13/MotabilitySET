@@ -1,0 +1,34 @@
+{
+  "name": "OLA - New Application",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "prepare": "cp cypress.example.env.json cypress.env.json",
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "cypress:open": "cypress open",
+    "cypress:run": "cypress run --browser electron",
+    "cypress:report": "node ./cypress/report.js",
+    "e2e": "cypress run",
+    "e2e:chrome": "cypress run --browser chrome"
+  },
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "@badeball/cypress-cucumber-preprocessor": "^22.0.1",
+    "@bahmutov/cypress-esbuild-preprocessor": "^2.2.0",
+    "axe-core": "^4.10.3",
+    "cypress": "^14.2.1",
+    "cypress-axe": "^1.6.0",
+    "cypress-dotenv": "^3.0.1",
+    "cypress-xpath": "^2.0.1",
+    "dotenv": "^16.4.7",
+    "multiple-cucumber-html-reporter": "^3.8.0",
+    "typescript": "^5.4.2"
+  },
+  "cypress-cucumber-preprocessor": {
+    "json": {
+      "enabled": true
+    }
+  }
+}
